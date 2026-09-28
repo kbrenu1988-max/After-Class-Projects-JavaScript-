@@ -114,7 +114,7 @@
       <input
         type="number"
         id="age"
-        required
+        required   
         min="8"
         max="18"
         placeholder="Enter your age"
@@ -147,18 +147,15 @@
  
       try {
  
-        // Constraint Validation API
         if (!form.checkValidity()) {
           throw form.reportValidity();
         }
  
-        // Accessing Form Data
         let studentName = document.getElementById("studentName").value;
         let email = document.getElementById("email").value;
         let age = Number(document.getElementById("age").value);
         let eventName = document.getElementById("eventName").value;
  
-        // Writing Validation Conditions
         if (studentName.length < 3) {
           throw "Name must have at least 3 characters.";
         }
@@ -171,7 +168,6 @@
           throw "Please select an event.";
         }
  
-        // DOM Feedback before timer
         feedback.className = "";
         feedback.innerHTML = "Checking your registration details...";
  
@@ -191,7 +187,6 @@
  
       } catch (error) {
  
-        // DOM Feedback for errors
         
         feedback.className = "error";
  
@@ -202,7 +197,9 @@
         }
       }
     }
+
+
   </script>
   
-  <body>
+</body>
 </html>

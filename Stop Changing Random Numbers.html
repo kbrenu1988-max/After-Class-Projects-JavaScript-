@@ -1,0 +1,46 @@
+<html>
+
+    <body>
+
+        <div class="container">
+    <h2>Random Number Generator</h2>
+    <div id="number-display">0</div>
+    <button id="toggle-btn">Start</button>
+    <div id="click-status">Clicks: 0 (Even - Standing by)</div>
+</div>
+    </body>
+
+    <script>
+    let intervalId = null;
+    let clickCount = 0;
+
+    const numberDisplay = document.getElementById('number-display');
+    const toggleBtn = document.getElementById('toggle-btn');
+    const clickStatus = document.getElementById('click-status');
+
+
+    function generateRandomNumber() {
+
+        numberDisplay.textContent = Math.floor(Math.random() * 100) + 1;
+    }
+
+    // Event listener for the button click
+    toggleBtn.addEventListener('click', () => {
+        clickCount++; 
+
+        if (clickCount % 2) {
+            clearInterval(intervalId);
+            intervalId = null; 
+            toggleBtn.textContent = "Start";
+            clickStatus.textContent = `Clicks: ${clickCount} (Odd - Stopped)`;
+        } 
+
+        else {
+
+            intervalId = setInterval(generateRandomNumber, 100); 
+            toggleBtn.textContent = "Stop";
+            clickStatus.textContent = `Clicks: ${clickCount} (Even - Running)`;
+        }
+    });
+</script>
+</html>

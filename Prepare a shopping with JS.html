@@ -24,8 +24,7 @@
         })
 
         function createItem(inputItems) {
-            var items = `<li>${Input}
-            <button onclick = "deleteElement(this)">Delete</button></li>`
+            var items = `<li>${Input} <button onclick = "deleteElement(this)">Delete</button></li>`
             myItem.insertAdjacentHTML("beforeend", items)
             myInput.value = ""
             myInput.focus()
